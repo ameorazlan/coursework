@@ -1,0 +1,24 @@
+{% load static %}
+
+{% load sass_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href={% sass_src 'css/base.scss' %}>
+ {% block title %}
+ <title>Notes</title>
+ {% endblock title%}
+</head>
+<body>
+ {% block header %}
+ <p>This is my header</p>
+ {% endblock header %}
+
+ {% block content %}
+ {% endblock content %}
+
+ {% block footer %}
+ <p>This is my footer</p>
+ {% endblock footer %}
+</body>
+</html>
