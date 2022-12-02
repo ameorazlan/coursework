@@ -21,7 +21,18 @@ td {
   float: left;
   margin: 0;
   padding: 8px;
-  height: 21px;
+  height: 17px;
   background-color: bisque; }
 
-/*# sourceMappingURL=base.css.map */
+.menu li {
+  display: inline; }
+
+.navbutton:link {
+  font-family: "Times New Roman", "Times", serif;
+  color: darkblue;
+  padding: 8px; }
+
+.navbutton:hover {
+  background: lightblue; }
+
+/*# sourceMappingURL=base2.css.map */

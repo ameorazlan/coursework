@@ -18,3 +18,26 @@ h1 {
 td {
     text-align: center;
 }
+
+.menu{
+    width: 100%;
+    float: left;
+    margin: 0;
+    padding: 8px;
+    height: 17px;
+    background-color: bisque;
+}
+
+.menu li {
+    display: inline;
+}
+
+.navbutton:link {
+    font-family: $font;
+    color: darkblue;
+    padding: 8px;
+}
+
+.navbutton:hover {
+    background: lightblue;
+}
