@@ -13,7 +13,6 @@ class HomePageTests(TestCase):
         response = self.client.get(reverse('contact'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'This is my header')
-        self.assertContains(response, 'This is My Contact Page')
         self.assertContains(response, 'This is my footer')
     def test_fixtures(self):
         response = self.client.get(reverse('fixtures'))

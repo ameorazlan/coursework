@@ -1,0 +1,16 @@
+body {
+  font-family: "Times New Roman", "Times", serif;
+  background-color: #DDDDDD;
+  margin: 10px;
+  padding: 10px; }
+
+h1 {
+  text-transform: uppercase; }
+
+.success {
+  background-color: #00FF00; }
+
+.error, .errorlist {
+  background-color: #FF0000; }
+
+/*# sourceMappingURL=base2.css.map */
