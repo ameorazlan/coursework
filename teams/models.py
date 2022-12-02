@@ -6,3 +6,5 @@ class team(models.Model):
     player_count = models.IntegerField()
     year_founded = models.IntegerField()
     owner_email = models.CharField(max_length=100)
+
+

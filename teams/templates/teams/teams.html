@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}
+<title>Teams </title>
+{% endblock title%}
+{% block content %}
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Player Count</th>
+        <th>Year Founded</th>
+        <th>Owner Email</th>
+    </tr>
+    {% for team in team_list %}
+        <tr>
+            <td>
+                {{ team.name | truncatechars:20}}
+            </td>
+            <td>
+                {{ team.player_count}}
+            </td>
+            <td>
+                {{team.year_founded}}
+            </td>
+            <td>
+                {{team.owner_email}}
+            </td>
+        </tr>
+    {% endfor %}
+   </table> <hr/>
+{% endblock content %} 

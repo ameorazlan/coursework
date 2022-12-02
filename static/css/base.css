@@ -13,4 +13,7 @@ h1 {
 .error, .errorlist {
   background-color: #FF0000; }
 
-/*# sourceMappingURL=base2.css.map */
+td {
+  text-align: center; }
+
+/*# sourceMappingURL=base.css.map */

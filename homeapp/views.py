@@ -31,15 +31,3 @@ def contact(request):
         else:
             messages.add_message(request, messages.ERROR, 'Invalid Form Data. Message Not Sent') 
     return render(request, 'homeapp/contact.html', {"form":form})
-
-def fixtures(request):
-    context = {}
-    return render(request, 'homeapp/fixtures.html', context)
-
-def table(request):
-    context = {}
-    return render(request, 'homeapp/table.html', context)
-
-def update(request):
-    context = {}
-    return render(request, 'homeapp/update.html', context)
