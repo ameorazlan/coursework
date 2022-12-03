@@ -1,13 +1,20 @@
 {% extends "base.html" %}
-{% block title %}
-<title>Update </title>
-{% endblock title%}
 {% block content %}
+<script>
+function validateTerms() {
+    if (!$("agreeToTerms").checked) {
+        window.alert("Please checek terms and conidtions");
+        return false;
+    }
+}
+</script>
 <h1>Register your team here</h1>
-<form method="POST" enctype="multipart/form-data">
+<form method="POST" enctype="multipart/form-data" onsubmit= "return validateTerms()">
     <!-- Security token -->
     {% csrf_token %}
     <!-- Using the formset -->
     {{ form.as_p }}
-    <input type="submit" value="Submit">
+    I agree to the terms and conditions<input type="checkbox" id="agreeToTerms">
+    <br>
+    <input type="submit" id ="submit" value="Submit">
 {% endblock content %} 

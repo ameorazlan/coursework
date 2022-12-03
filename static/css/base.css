@@ -4,9 +4,6 @@ body {
   margin: 10px;
   padding: 10px; }
 
-h1 {
-  text-transform: uppercase; }
-
 .success {
   background-color: #00FF00; }
 
@@ -21,7 +18,28 @@ td {
   float: left;
   margin: 0;
   padding: 8px;
-  height: 21px;
-  background-color: bisque; }
+  height: 17px;
+  background-color: #262626; }
+
+.menu li {
+  display: inline-block;
+  font-weight: bold;
+  vertical-align: auto;
+  padding-right: 10px; }
+
+.menu li a {
+  color: white; }
+
+.navbutton:link {
+  font-family: "Times New Roman", "Times", serif;
+  color: darkblue;
+  padding: 8px; }
+
+.navbutton:hover {
+  transition: .3s;
+  color: lightblue; }
+
+table, th, td {
+  border: 1px solid; }
 
 /*# sourceMappingURL=base.css.map */

@@ -5,9 +5,11 @@ body {
   padding: 10px; }
 
 .success {
+  display: inline;
   background-color: #00FF00; }
 
 .error, .errorlist {
+  display: inline;
   background-color: #FF0000; }
 
 td {
