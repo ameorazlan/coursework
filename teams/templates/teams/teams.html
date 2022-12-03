@@ -5,6 +5,7 @@
 {% block content %}
 <table>
     <tr>
+        <th>Team ID</th>
         <th>Name</th>
         <th>Player Count</th>
         <th>Year Founded</th>
@@ -12,6 +13,9 @@
     </tr>
     {% for team in team_list %}
         <tr>
+            <td>
+                {{ team.id }}
+            </td>
             <td>
                 {{ team.name | truncatechars:20}}
             </td>

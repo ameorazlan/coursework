@@ -9,4 +9,20 @@ class team(models.Model):
     year_founded = models.IntegerField(validators = [MaxValueValidator(2022)])
     owner_email = models.CharField(max_length=100)
 
+class fixtures(models.Model):
+    team1 = models.ForeignKey(team, on_delete=models.CASCADE, related_name='team1')
+    team2 = models.ForeignKey(team, on_delete=models.CASCADE, related_name='team2')
+    date = models.DateTimeField
+    score1 = models.IntegerField(default=0)
+    score2 = models.IntegerField(default=0)
+
+class table(models.Model):
+    team = models.ForeignKey(team, on_delete=models.CASCADE)
+    score = models.IntegerField(default=0)
+    wins = models.IntegerField(default=0)
+    draws = models.IntegerField(default=0)
+    loses = models.IntegerField(default=0)
+    GP = models.IntegerField(default=0)
+    GF = models.IntegerField(default=0)
+    GA = models.IntegerField(default=0)
 

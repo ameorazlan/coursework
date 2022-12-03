@@ -1,7 +1,7 @@
 from django.shortcuts import (get_object_or_404, render, redirect)
 from django.contrib import messages
 from .models import team
-from .forms import teamForm
+from .forms import teamForm, fixtureForm
 
 
 # Create your views here.
@@ -17,6 +17,18 @@ def teams(request):
     context = {}
     context["team_list"] = team.objects.all()
     return render(request, "teams/teams.html",context)
+
+def register_fixture(request):
+    context = {}
+    form = fixtureForm(request.POST or None)
+    if (request.method == 'POST'):
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, 'Fixture Registered')
+            return redirect('fixtures')
+    context['form']= form
+    context["team_list"] = team.objects.all()
+    return render(request, "teams/register_fixture.html",context)
 
 
 def create(request):
