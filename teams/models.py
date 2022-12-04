@@ -7,7 +7,7 @@ class team(models.Model):
     name = models.CharField(max_length=100, unique=True)
     player_count = models.IntegerField(validators = [MinValueValidator(11)])
     year_founded = models.IntegerField(validators = [MaxValueValidator(2022)])
-    owner_email = models.CharField(max_length=100)
+    owner_email = models.EmailField(max_length=100)
 
 class fixtures(models.Model):
     team1 = models.ForeignKey(team, on_delete=models.CASCADE, related_name='team1')
