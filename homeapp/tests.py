@@ -10,30 +10,52 @@ class HomePageTests(TestCase):
     def test_home(self):
         response = self.client.get(reverse('home'))
         self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Welcome to the University Football League South Division')
+        self.assertContains(response, 'Home')
+        self.assertContains(response, '2022 Adam Meor Azlan')
 
     def test_contact(self):
         response = self.client.get(reverse('contact'))
         self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Contact us with any queries')
+        self.assertContains(response, 'Home')
+        self.assertContains(response, '2022 Adam Meor Azlan')
     
     def test_fixtures(self):
         response = self.client.get(reverse('fixtures'))
         self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Team Name')
+        self.assertContains(response, 'Home')
+        self.assertContains(response, '2022 Adam Meor Azlan')
 
     def test_table(self):
         response = self.client.get(reverse('table'))
         self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Team ID')
+        self.assertContains(response, 'Home')
+        self.assertContains(response, '2022 Adam Meor Azlan')
 
     def test_create(self):
         response = self.client.get(reverse('create'))
         self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Register your team here')
+        self.assertContains(response, 'Home')
+        self.assertContains(response, '2022 Adam Meor Azlan')
     
     def test_teams(self):
         response = self.client.get(reverse('teams'))
         self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Team Logo')
+        self.assertContains(response, 'Home')
+        self.assertContains(response, '2022 Adam Meor Azlan')
     
     def register_fixture(self):
         response = self.client.get(reverse('register_fixture'))
         self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Register your fixture here')
+        self.assertContains(response, 'Home')
+        self.assertContains(response, '2022 Adam Meor Azlan')
+
 
 class MailerTests(TestCase):
     def test_send_email(self):
