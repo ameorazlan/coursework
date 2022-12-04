@@ -6,7 +6,7 @@ class teamForm(forms.ModelForm):
     class Meta:
         # specify model to be used
         model = team
-        fields = ['name', 'player_count', 'year_founded', 'owner_email']
+        fields = ['name', 'player_count', 'year_founded', 'owner_email', 'image']
         widgets = {
         'name': forms.TextInput(attrs={
         'class': 'formfield',

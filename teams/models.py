@@ -8,6 +8,7 @@ class team(models.Model):
     player_count = models.IntegerField(validators = [MinValueValidator(11)])
     year_founded = models.IntegerField(validators = [MaxValueValidator(2022)])
     owner_email = models.EmailField(max_length=100)
+    image = models.ImageField(null=True, blank=True, upload_to='images/')
 
 class fixtures(models.Model):
     team1 = models.ForeignKey(team, on_delete=models.CASCADE, related_name='team1')

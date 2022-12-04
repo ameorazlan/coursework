@@ -5,6 +5,7 @@
 {% block content %}
 <table>
     <tr>
+        <th>Team Logo</th>
         <th>Team ID</th>
         <th>Name</th>
         <th>Player Count</th>
@@ -13,6 +14,12 @@
     </tr>
     {% for team in team_list %}
         <tr>
+            <td>
+                {% if team.image %}
+                <img src="static{{ team.image.url}}"width=100px>
+                {% else %}
+                <img src="static/images/football_icon.jpg"width=50px>
+                {% endif %}
             <td>
                 {{ team.id }}
             </td>

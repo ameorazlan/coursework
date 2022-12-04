@@ -70,6 +70,7 @@ def create(request):
     context ={}
     form = teamForm(request.POST or None)
     if(request.method == 'POST'):
+        form = teamForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.add_message(request, messages.SUCCESS, 'Team Registered')
