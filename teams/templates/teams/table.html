@@ -3,6 +3,53 @@
 <title>Table</title>
 {% endblock title%}
 {% block content %}
-<h1>This is the table page</h1>
-<p>Rendering /homeapp/table.html</p>
+<table>
+    <tr>
+        <th>Team ID</th>
+        <th>Name</th>
+        <th>Points</th>
+        <th>Wins</th>
+        <th>Draws</th>
+        <th>Losses</th>
+        <th>GP</th>
+        <th>GF</th>
+        <th>GA</th>
+    </tr>
+    {% for team in table_list %}
+        
+        <tr>
+            <td>
+                {{ team.id }}
+            </td>
+            <td>
+            {% for team2 in team_list %}
+                {% if team2.id == team.team_id %}
+                    {{ team2.name }}
+                {% endif %}
+            {% endfor %}
+            </td>
+            <td>
+                {{ team.score}}
+            </td>
+            <td>
+                {{team.wins}}
+            </td>
+            <td>
+                {{team.draws}}
+            </td>
+            <td>
+                {{ team.loses | truncatechars:20}}
+            </td>
+            <td>
+                {{ team.GP}}
+            </td>
+            <td>
+                {{team.GF}}
+            </td>
+            <td>
+                {{team.GA}}
+            </td>
+        </tr>
+    {% endfor %}
+   </table> <hr/>
 {% endblock content %} 

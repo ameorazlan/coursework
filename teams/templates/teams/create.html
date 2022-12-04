@@ -6,10 +6,11 @@ function validateTerms() {
         window.alert("Please checek terms and conidtions");
         return false;
     }
+    return true;
 }
 </script>
 <h1>Register your team here</h1>
-<form method="POST" enctype="multipart/form-data" onsubmit= "return validateTerms()">
+<form method="POST" enctype="multipart/form-data" >
     <!-- Security token -->
     {% csrf_token %}
     <!-- Using the formset -->

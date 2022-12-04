@@ -1,6 +1,6 @@
 from django.shortcuts import (get_object_or_404, render, redirect)
 from django.contrib import messages
-from .models import team
+from .models import team, table as tablemodel
 from .forms import teamForm, fixtureForm
 
 
@@ -11,6 +11,12 @@ def fixtures(request):
 
 def table(request):
     context = {}
+    context["table_list"] = tablemodel.objects.all()
+    context["team_list"] = team.objects.all()
+    for teamobj in team.objects.all():
+        if (tablemodel.objects.filter(team=teamobj).count == 0):
+            a = tablemodel.objects.create(team=teamobj)
+            a.save()
     return render(request, 'teams/table.html', context)
 
 def teams(request):
