@@ -1,6 +1,7 @@
 $font: 'Verdana', 'sans-serif';
 $color: #0B0C10;
 body {
+ text-align: center;
  font-family: $font;
  background-color: $color;
  color: white;
@@ -14,6 +15,11 @@ body {
 
 .error, .errorlist{
     background-color: #FF0000
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 td {
