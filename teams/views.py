@@ -1,12 +1,14 @@
 from django.shortcuts import (get_object_or_404, render, redirect)
 from django.contrib import messages
-from .models import team, table as tablemodel
+from .models import team, table as tablemodel, fixtures as fixturesmodel
 from .forms import teamForm, fixtureForm
 
 
 # Create your views here.
 def fixtures(request):
     context = {}
+    context['fixtures_list'] = fixturesmodel.objects.all().order_by('-id')
+    context["team_list"] = team.objects.all()
     return render(request, 'teams/fixtures.html', context)
 
 def table(request):

@@ -1,8 +1,9 @@
-$font: 'Times New Roman', 'Times', serif;
-$color: #DDDDDD;
+$font: 'Verdana', 'sans-serif';
+$color: #0B0C10;
 body {
  font-family: $font;
  background-color: $color;
+ color: white;
  margin: 10px;
  padding: 10px;
 }
@@ -25,10 +26,11 @@ td {
     margin: 0;
     padding: 8px;
     height: 17px;
-    background-color: #262626;
+    background-color: #1f2833;
 }
 
 .menu li {
+    font-family: $font;
     display: inline-block;
     font-weight: bold;
     vertical-align: auto;
@@ -36,7 +38,8 @@ td {
 }
 
 .menu li a {
-    color: white;
+    font-family: $font;
+    color: #66FCF1;
 }
 
 .navbutton:link {
@@ -47,7 +50,7 @@ td {
 
 .navbutton:hover {
     transition: .3s;
-    color: lightblue;
+    color: white;
 }
 
 

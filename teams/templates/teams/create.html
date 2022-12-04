@@ -2,7 +2,7 @@
 {% block content %}
 <script>
 function validateTerms() {
-    if (!$("agreeToTerms").checked) {
+    if (!$("#agreeToTerms").is(':checked')) {
         window.alert("Please checek terms and conidtions");
         return false;
     }
@@ -10,7 +10,7 @@ function validateTerms() {
 }
 </script>
 <h1>Register your team here</h1>
-<form method="POST" enctype="multipart/form-data" >
+<form method="POST" enctype="multipart/form-data" onsubmit="return validateTerms()" >
     <!-- Security token -->
     {% csrf_token %}
     <!-- Using the formset -->

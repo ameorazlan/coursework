@@ -3,6 +3,37 @@
 <title>Fixtures </title>
 {% endblock title%}
 {% block content %}
-<h1>This is the fixtures page</h1>
-<p>Rendering /homeapp/fixtures.html</p>
+<table>
+    <tr>
+        <th>Team Name</th>
+        <th colspan=2>Score</th>
+        <th>Team Name</th>
+    </tr>
+    {% for game in fixtures_list %}
+        
+        <tr>
+            <td>
+            {% for team in team_list %}
+                {% if team.id == game.team1_id %}
+                    {{ team.name }}
+                {% endif %}
+            {% endfor %}
+            </td>
+            <td>
+                {{ game.score1}}
+            </td>
+            <td>
+                {{game.score2}}
+            </td>
+            <td>
+                {% for team in team_list %}
+                    {% if team.id == game.team2_id %}
+                        {{ team.name }}
+                    {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+    {% endfor %}
+   </table> <hr/>
+
 {% endblock content %} 
