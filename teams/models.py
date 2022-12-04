@@ -11,9 +11,10 @@ class team(models.Model):
     image = models.ImageField(null=True, blank=True, upload_to='images/')
 
 class fixtures(models.Model):
+    class Meta:
+        unique_together = ['team1', 'team2']
     team1 = models.ForeignKey(team, on_delete=models.CASCADE, related_name='team1')
     team2 = models.ForeignKey(team, on_delete=models.CASCADE, related_name='team2')
-    date = models.DateTimeField
     score1 = models.IntegerField(default=0)
     score2 = models.IntegerField(default=0)
 
