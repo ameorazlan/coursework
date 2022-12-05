@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 <script>
+    //Checks if form is valid
 function validateForm() {
+    //Checks if user has agreed to terms and conditions
     if (!$("#agreeToTerms").is(':checked')) {
         window.alert("Please checek terms and conidtions");
         return false;
     }
+    //Checks if player count is higher than 26
     if ($("#id_player_count").val() > 26) {
         window.alert("Player count too high");
         return false;

@@ -15,9 +15,11 @@
     {% for team in team_list %}
         <tr>
             <td>
+                <!--Checks if the team has a corresponding logo in the database-->
                 {% if team.image %}
                 <img src="static{{ team.image.url}}"width=100px>
                 {% else %}
+                <!--Otherwise use default football logo-->
                 <img src="static/images/football_icon.jpg"width=50px>
                 {% endif %}
             <td>

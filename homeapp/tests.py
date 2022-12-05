@@ -3,10 +3,12 @@ from django.urls import reverse
 from django.core.mail import send_mail
 from django.core import mail
 
-# Create your tests here.
-class HomePageTests(TestCase):
+# Testing all the template pages
+#Checks if the reponse code is successful, and a few content checks including navbar and footer
+class TemplateTests(TestCase):
     def setUp(self):
         return
+    #Tests home page
     def test_home(self):
         response = self.client.get(reverse('home'))
         self.assertEqual(response.status_code, 200)
@@ -14,6 +16,7 @@ class HomePageTests(TestCase):
         self.assertContains(response, 'Home')
         self.assertContains(response, '2022 Adam Meor Azlan')
 
+    #Tests contacts page
     def test_contact(self):
         response = self.client.get(reverse('contact'))
         self.assertEqual(response.status_code, 200)
@@ -21,6 +24,7 @@ class HomePageTests(TestCase):
         self.assertContains(response, 'Home')
         self.assertContains(response, '2022 Adam Meor Azlan')
     
+    #Tests fixtures page
     def test_fixtures(self):
         response = self.client.get(reverse('fixtures'))
         self.assertEqual(response.status_code, 200)
@@ -35,6 +39,7 @@ class HomePageTests(TestCase):
         self.assertContains(response, 'Home')
         self.assertContains(response, '2022 Adam Meor Azlan')
 
+    #Tests team creation page
     def test_create(self):
         response = self.client.get(reverse('create'))
         self.assertEqual(response.status_code, 200)
@@ -42,6 +47,7 @@ class HomePageTests(TestCase):
         self.assertContains(response, 'Home')
         self.assertContains(response, '2022 Adam Meor Azlan')
     
+    #Tests teams view page
     def test_teams(self):
         response = self.client.get(reverse('teams'))
         self.assertEqual(response.status_code, 200)
@@ -49,6 +55,7 @@ class HomePageTests(TestCase):
         self.assertContains(response, 'Home')
         self.assertContains(response, '2022 Adam Meor Azlan')
     
+    #Tests fixture registration page
     def register_fixture(self):
         response = self.client.get(reverse('register_fixture'))
         self.assertEqual(response.status_code, 200)
@@ -56,7 +63,7 @@ class HomePageTests(TestCase):
         self.assertContains(response, 'Home')
         self.assertContains(response, '2022 Adam Meor Azlan')
 
-
+    #Tests the mailer system
 class MailerTests(TestCase):
     def test_send_email(self):
         send_mail('Testing', 'Testing', 'from@testing.com', ['am03864@surrey.ac.uk'])

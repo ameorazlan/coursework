@@ -1,9 +1,11 @@
 from django.core.management.base import BaseCommand
 from teams.models import *
 
+#Seeds database with some team and fixtures objects
+#Note that only 2 sample universities will be seeded here, the rest were inputted manually in the forms
 class Command(BaseCommand):
     def handle(self, *args, **options):
-        team.objects.all().delete()
-        t=team(name="Manchester City", player_count=20, year_founded=1880, owner_email="mancity@gmail.com")
-        t.save()
-        self.stdout.write('done.') 
+        t1 = team.objects.get(id=37)
+        t2 = team.objects.get(id=38)
+        t1.delete()
+        t2.delete()

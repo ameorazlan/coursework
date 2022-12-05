@@ -6,6 +6,7 @@ class teamForm(forms.ModelForm):
     class Meta:
         # specify model to be used
         model = team
+        #Form fields corresponding to the model attributes
         fields = ['name', 'player_count', 'year_founded', 'owner_email', 'image']
         widgets = {
         'name': forms.TextInput(attrs={
@@ -30,6 +31,7 @@ class fixtureForm(forms.ModelForm):
      class Meta:
         # specify model to be used
         model = fixtures
+        #Form fields corresponding to the model attributes
         fields = ['team1', 'team2', 'score1', 'score2']
         widgets = {
         'team1': forms.NumberInput(attrs={

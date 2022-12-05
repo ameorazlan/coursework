@@ -10,5 +10,6 @@ urlpatterns = [
     path('create', views.create, name='create'),
     path('register_fixture', views.register_fixture, name = 'register_fixture'),
 ]
+#settings for image upload
 urlpatterns +=  static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns+=  static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

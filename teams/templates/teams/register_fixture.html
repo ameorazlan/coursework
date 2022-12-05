@@ -4,11 +4,14 @@
 {% endblock title%}
 {% block content %}
 <script>
+    //Validates form submission
 function validateForm() {
+    //Checks if user submitted negative amounts of goals
     if ($("#id_score1").val() < 0 || $("#id_score2").val() < 0) {
         window.alert("Please input a valid score");
         return false;
     }
+    //Checks if user put the same team for team1 and team2
     if ($("#id_team1").val() == $("#id_team2").val()) {
         window.alert("Teams cannot be the same");
         return false;

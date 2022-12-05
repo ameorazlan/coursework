@@ -4,19 +4,22 @@ from django.db import transaction
 from .models import team, fixtures, table
 from django.urls import reverse
 from .forms import fixtureForm
-# Create your tests here.
+#Tests team object creation
 class TeamsTests(TestCase):
     @classmethod
+    #Sets up some teams in the database
     def setUp(cls):
         t1 = team(name = 'Test Team', player_count = 13, year_founded = 2022, owner_email='test_team@gmail.com')
         t1.save()
         t2 = team(name = 'Test Team2', player_count = 13, year_founded = 2022, owner_email='test_team2@gmail.com')
         t2.save()
+    #Tests to see if a team can be successfully saved in the databse
     def test_save_team(self):
         db_count = team.objects.all().count()
         t3 = team(name = 'Test Team3', player_count = 13, year_founded = 2022, owner_email='test_team3@gmail.com')
         t3.save()
         self.assertEqual(db_count+1, team.objects.all().count())
+    #Tests if a duplicate team can exist
     def test_duplicate_title(self):
         db_count = team.objects.all().count()
         t = team(name = 'Test Team', player_count = 13, year_founded = 2022, owner_email='test_team3@gmail.com')
@@ -26,8 +29,9 @@ class TeamsTests(TestCase):
         except IntegrityError:
             pass
         self.assertNotEqual(db_count+1, team.objects.all().count())
-
+#Tests fixtures table
 class FixturesTest(TestCase):
+    #Sets up 2 fixtures with 2 teams
     @classmethod
     def setUp(cls):
         t1 = team(name = 'Test Team', player_count = 13, year_founded = 2022, owner_email='test_team@gmail.com')
@@ -38,7 +42,8 @@ class FixturesTest(TestCase):
         f1.save()
         f2 = fixtures(team1 = t2, team2 = t1, score1 = 0, score2 = 2)
         f2.save()
-    def test_save_team(self):
+        #Tests if a fixture can successfully saved
+    def test_save_fixture(self):
         db_count = team.objects.all().count()
         t3 = team(name = 'Test Team3', player_count = 13, year_founded = 2022, owner_email='test_team3@gmail.com')
         t3.save()
@@ -47,7 +52,8 @@ class FixturesTest(TestCase):
         f3 = fixtures(team1 = t4, team2 = t3, score1 = 0, score2 = 2)
         f3.save()
         self.assertEqual(db_count+1, fixtures.objects.all().count())
-    def test_duplicate_title(self):
+        #Tests if a duplicate fixture can exist
+    def test_duplicate_fixture(self):
         t4 = team(name = 'Test Team4', player_count = 13, year_founded = 2022, owner_email='test_team4@gmail.com')
         t4.save()
         t5 = team(name = 'Test Team5', player_count = 13, year_founded = 2022, owner_email='test_team5@gmail.com')
