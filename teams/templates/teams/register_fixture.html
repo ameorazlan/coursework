@@ -3,8 +3,21 @@
 <title>Register fixture </title>
 {% endblock title%}
 {% block content %}
+<script>
+function validateForm() {
+    if ($("#id_score1").val() < 0 || $("#id_score2").val() < 0) {
+        window.alert("Please input a valid score");
+        return false;
+    }
+    if ($("#id_team1").val() == $("#id_team2").val()) {
+        window.alert("Teams cannot be the same");
+        return false;
+    }
+}
+
+</script>
 <h1>Register your fixture here</h1>
-<form method="POST" enctype="multipart/form-data" onsubmit= "return validateTerms()">
+<form method="POST" enctype="multipart/form-data" id="fixturesForm" onsubmit= "return validateForm()">
     <!-- Security token -->
     {% csrf_token %}
     <!-- Using the formset -->

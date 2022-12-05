@@ -1,16 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 <script>
-function validateTerms() {
+function validateForm() {
     if (!$("#agreeToTerms").is(':checked')) {
         window.alert("Please checek terms and conidtions");
+        return false;
+    }
+    if ($("#id_player_count").val() > 26) {
+        window.alert("Player count too high");
         return false;
     }
     return true;
 }
 </script>
 <h1>Register your team here</h1>
-<form method="POST" enctype="multipart/form-data" onsubmit="return validateTerms()" >
+<form method="POST" enctype="multipart/form-data" onsubmit="return validateForm()" >
     <!-- Security token -->
     {% csrf_token %}
     <!-- Using the formset -->
